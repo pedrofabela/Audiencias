@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts> 
+    <constant name="struts.multipart.maxSize" value="299999999" />
+    <constant name="struts.ui.theme" value="simple"></constant>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+    <constant name="struts.action.excludePattern" value="/GeneraPdf"></constant>
+    
+    <package name="default" namespace="/" extends="struts-default">
+
+        <!-- ACCESO  A MENUS-->
+        <action name="acceso" class="action.Acceso_Action" method="verMevu">
+            <result name="SUCCESS">/pages/login.jsp</result>			              
+            <result name="ERROR">/pages/login.jsp</result>
+            <result name="input">/pages/login.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+		
+		
+        <action name="verAcceso" class="action.Acceso_Action" method="MuestraMenuPrincipalUsuario">
+            <result name="SUCCESS">/pages/index.jsp</result>
+            <result name="SUCCESS2">/pages/index2.jsp</result>
+                <result name="SUCCESS3">/pages/index3.jsp</result>              
+            <result name="ERROR">/pages/login.jsp</result>
+            <result name="input">/pages/login.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+        <action name="ReturnStar" class="action.PrincipalAction" method="RegresarIncio">
+            <result name="SUCCESS" type="chain">verAcceso</result>			                       
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+         <action name="CuentaInd" class="action.PrincipalAction" method="inicio">
+            <result name="SUCCESS">/pages/index.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        <action name="ConsultaCurp" class="action.PrincipalAction" method="consultacurp">
+            <result name="SUCCESS">/pages/index.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>
+        
+           <action name="consultaFolioActualiza" class="action.PrincipalAction" method="consultaFolioActualiza">
+            <result name="SUCCESS">/pages/nueva_audiencia.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action> 
+        
+                 <action name="consultaFolioActualizaGiras" class="action.PrincipalAction" method="consultaFolioActualizaGiras">
+            <result name="SUCCESS">/pages/nueva_audiencia_Giras.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>          
+        
+                 <action name="actualizarAudiencia" class="action.PrincipalAction" method="actualizarAudiencia">
+            <result name="SUCCESS">/pages/nueva_audiencia.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>  
+         <action name="actualizarAudienciaGiras" class="action.PrincipalAction" method="actualizarAudienciaGiras">
+            <result name="SUCCESS">/pages/nueva_audiencia_Giras.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>                  
+        <!--REGISTRO  -->	
+        
+                                
+        <!--BUSQUEDA DE CIUDADANOS -->                                                
+                                                                                
+           <action name="busquedaCiudadano" class="action.PrincipalAction" method="busquedaCiudadano">
+            <result name="SUCCESS">/pages/index.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>  
+        
+        
+         <action name="busquedaCiudadanoGiras" class="action.PrincipalAction" method="busquedaCiudadanoGiras">
+            <result name="SUCCESS">/pages/index3.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>  
+        
+          <action name="actualizarCiudadano" class="action.PrincipalAction" method="actualizarCiudadano">
+            <result name="SUCCESS">/pages/index.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>  
+          <action name="actualizarCiudadanoGiras" class="action.PrincipalAction" method="actualizarCiudadanoGiras">
+            <result name="SUCCESS">/pages/index3.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>  
+        
+        
+        
+        <action name="nuevaAudiencia" class="action.PrincipalAction" method="nuevaAudiencia">
+            <result name="SUCCESS">/pages/nueva_audiencia.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>  
+        
+              <action name="nuevaAudienciaGiras" class="action.PrincipalAction" method="nuevaAudienciaGiras">
+            <result name="SUCCESS">/pages/nueva_audiencia_Giras.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>                                                                                                                                                                                             
+                                                                                                                                
+            <action name="guardaAudiencia" class="action.PrincipalAction" method="guardaAudiencia">
+            <result name="SUCCESS">/pages/nueva_audiencia.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>    
+        
+             <action name="guardaAudienciaGiras" class="action.PrincipalAction" method="guardaAudienciaGiras">
+            <result name="SUCCESS">/pages/nueva_audiencia_Giras.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>                                                                                                                                                                                                                                                                                
+                  
+               <action name="agregarAudiencia" class="action.PrincipalAction" method="agregarAudiencia">
+            <result name="SUCCESS">/pages/nueva_audiencia.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>                                                                                                                                                                                                                                                                                                                                  
+                  
+             <action name="NuevoCiudadano" class="action.PrincipalAction" method="NuevoCiudadano">
+            <result name="SUCCESS">/pages/nuevo_ciudadano.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>    
+          <action name="NuevoCiudadanoGiras" class="action.PrincipalAction" method="NuevoCiudadanoGiras">
+            <result name="SUCCESS">/pages/nuevo_ciudadano_Giras.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>  
+        
+            <action name="guardaCiudadano" class="action.PrincipalAction" method="guardaCiudadano">
+            <result name="SUCCESS">/pages/nueva_audiencia.jsp</result>			              
+            <result name="ERROR">/pages/nuevo_ciudadano.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>    
+        
+            <action name="guardaCiudadanoGiras" class="action.PrincipalAction" method="guardaCiudadanoGiras">
+            <result name="SUCCESS">/pages/nueva_audiencia_Giras.jsp</result>			              
+            <result name="ERROR">/pages/nuevo_ciudadano_Giras.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+                 
+             <action name="inicioDashboard" class="action.PrincipalAction" method="inicioDashboard">
+            <result name="SUCCESS">/pages/dashboard.jsp</result>			              
+            <result name="ERROR">/pages/dashboard.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>  
+        <action name="inicioDashboardFechas" class="action.PrincipalAction" method="inicioDashboardFechas">
+            <result name="SUCCESS">/pages/dashboard.jsp</result>			              
+            <result name="ERROR">/pages/dashboard.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>      
+        
+           <action name="guardaSeguimiento" class="action.PrincipalAction" method="guardaSeguimiento">
+            <result name="SUCCESS">/pages/index2.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+         
+              <action name="reporteador" class="action.PrincipalAction" method="reporteador">
+            <result name="SUCCESS">/pages/reporteador.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>   
+         <action name="genararReporte" class="action.PrincipalAction" method="genararReporte">
+            <result name="SUCCESS">/pages/reporteador.jsp</result>			              
+            <result name="ERROR">/pages/index.jsp</result>
+            <result name="input">/pages/index.jsp</result>
+            <result name="SESION" type="chain">CerrarSesion</result>
+        </action>              
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      			
+        <!-- CERRAR SESION -->
+        <action name="CerrarSesion" class="action.CerrarSesion" method="cerrar">  
+            <result name="SUCCESS" type="chain">acceso</result>
+            <result name="input" type="chain">acceso</result>
+        </action>	
+        
+		
+    </package>
+	
+</struts>
