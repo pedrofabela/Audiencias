@@ -34,9 +34,36 @@
         var options = {
           
           backgroundColor: '#edecec',
+          tooltip: {textStyle: {fontName: 'TimesNewRoman',fontSize: 14,bold: false}},
+           hAxis: {
+      maxTextLines: 8,
+      textStyle: {
+        fontSize: 8,
+      }
+    },
+    
+      animation: {
+                duration: 2500,
+                startup: true //This is the new option
+            },
+
+            annotations: {
+                textStyle: {
+
+                    fontSize: 18,
+
+                }
+            },
+            
+            
+    
+    
+    
         };
+        
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        
 
         chart.draw(data, options);
       }
@@ -79,6 +106,23 @@
        
         bar: {groupWidth: "85%"},
         legend: { position: "none" },
+          animation: {
+                duration: 4500,
+                startup: true //This is the new option
+            },
+
+            annotations: {
+                textStyle: {
+
+                    fontSize: 14,
+
+                }
+            },
+        
+        
+        
+        
+        
       };
       var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
       chart.draw(view, options);
@@ -107,21 +151,40 @@ function drawBarColors() {
 
       var options = {
       
-        chartArea: {width: '50%'},
+        chartArea: {width: '45%'},
         colors: ['#b0120a', '#ffab91'],
         hAxis: {
           title: 'Total de Audiencias',
           minValue: 0,
           textStyle: {
-        fontSize: 10,
+       fontSize: 8,
+         maxTextLines: 8,
       }
+      
+      
+   
           
         },
          backgroundColor: '#edecec',
            bar: {groupWidth: "85%"},
         vAxis: {
-          title: 'Servidores Públicos'
+          title: 'Servidores Públicos',
+          fontSize: 12,
         },
+        
+        animation: {
+                duration: 4500,
+                startup: true //This is the new option
+            },
+
+            annotations: {
+                textStyle: {
+
+                    fontSize: 12,
+
+                }
+            },
+            
         
         
 
@@ -466,7 +529,7 @@ function checkTime(i) {
                                                                     <div class="col-sm-auto  " style="background:  #edecec; margin-left: 00px;">
 
 
-                                                                        <div id="piechart" style="width: 100%; height: 240px; margin: auto; margin-top: 0px;"></div>
+                                                                        <div id="piechart" style="width: 100%; height: 240px; margin: auto; margin-top: 0px; margin: auto;"></div>
 
                                                                     </div> 
 
@@ -479,7 +542,7 @@ function checkTime(i) {
                                                                     <div style="width:100%; text-align: center; background: #606060; color: white; height: 35px; margin-top: 20px; border-radius: 8px 8px 0px 0px;  padding: 5px; ">Audiencias atendidas por día</div>
                                                                     <div class="col-sm-auto  " style="background:  #edecec; margin-left: 00px;">
 
-                                                                        <div id="columnchart_values" style="width: 100%; height: 300px;"></div>
+                                                                        <div id="columnchart_values" style="width: 100%; height: 300px; margin: auto;"></div>
 
                                                                     </div> 
 
@@ -493,7 +556,7 @@ function checkTime(i) {
                                                                     <div style="width:100%; text-align: center; background: #606060; color: white; height: 35px; margin-top: 20px; border-radius: 8px 8px 0px 0px;  padding: 5px; ">Audiencias atendidas por Servidor Público</div>
                                                                     <div class="col-sm-auto  " style="background:  #edecec; margin-left: 00px;">
 
-                                                                        <div id="chart_div" style="margin-bottom: 50px; height: 250px;"></div>
+                                                                        <div id="chart_div" style="margin-bottom: 50px; height: 450px;"></div>
                                                                         
                                                                         
                                                                         
