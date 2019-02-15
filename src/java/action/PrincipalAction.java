@@ -404,7 +404,39 @@ public class PrincipalAction extends ActionSupport implements SessionAware {
         }
         return "SUCCESS";
     }
-    
+     public String busquedaCiudadano4() {
+
+        if (cveusuario != null) {
+            session.put("cveUsuario", cveusuario);
+            session.put("psw", pasusuario);
+        } else if (session.get("cveUsuario") != null) {
+            cveusuario = (String) session.get("cveUsuario");
+            pasusuario = (String) session.get("psw");
+        }
+
+        try {
+            
+            
+            ConsultasBusiness con= new ConsultasBusiness();
+           
+            
+               ListaMunicipios=con.listaMunicipios();
+            
+            
+           ListaCiudadanos=con.consultaCiudadanos(datos);
+            
+        
+
+            //Se crea un nuevo objeto de acceco a Business
+            
+
+        } catch (Exception e) {
+            TipoError = "SESSION";
+            TipoException = e.getMessage();
+            return "ERROR";
+        }
+        return "SUCCESS";
+    }
     
     public String busquedaCiudadanoGiras() {
 
@@ -1254,7 +1286,27 @@ public class PrincipalAction extends ActionSupport implements SessionAware {
         }
     }
      
-     
+      public String busquedaCiudadanoAsesor() {
+
+        
+       
+
+        try {
+            
+           
+             
+             
+            
+        
+            
+            return "SUCCESS";
+
+        } catch (Exception e) {
+            TipoError = "SESSION";
+            TipoException = e.getMessage();
+            return "ERROR";
+        }
+    }
     public String NuevoCiudadano() {
 
         
