@@ -1764,6 +1764,8 @@ public class PrincipalAction extends ActionSupport implements SessionAware {
              
             banderafechas=true;
             
+            
+            
              
               ListaTotalAudiencias=con.totalAudiencias(datos);
               

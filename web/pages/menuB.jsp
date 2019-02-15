@@ -82,13 +82,13 @@
                
                 <li style=" margin-top: 50px;">
                     <div style="width: 100%; text-align: center; font-size: 14px;">Fecha Inicial </div>
-                    <s:textfield name="datos.FECHA_INICIO" id="Fecha"  placeholder="Fecha de Inicial" required="true" readonly="true" cssClass="campoFormBusqueda" onKeyUp="this.value=this.value.toUpperCase();" cssStyle="margin-left:5px;  width:95%; text-align:center;" />
+                    <s:textfield name="datos.FECHA_INICIO" id="Fecha"  placeholder="Fecha de Inicial" required="true" readonly="true" cssClass="campoFormBusqueda"  cssStyle="margin-left:5px;  width:95%; text-align:center;" />
 
                                 
                  </li>
                      <li style=" margin-top: 50px;">
                     <div style="width: 100%; text-align: center; font-size: 14px;">Fecha Final </div>
-                    <s:textfield name="datos.FECHA_TERMINO" id="Fecha1"  placeholder="Fecha de Inicial" required="true" readonly="true" cssClass="campoFormBusqueda" onKeyUp="this.value=this.value.toUpperCase();" cssStyle="margin-left:5px;  width:95%;  text-align:center;" />
+                    <s:textfield name="datos.FECHA_TERMINO" id="Fecha1"  placeholder="Fecha de Inicial" required="true" readonly="true" cssClass="campoFormBusqueda" cssStyle="margin-left:5px;  width:95%;  text-align:center;" />
 
                                 
                  </li>

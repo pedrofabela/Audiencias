@@ -120,11 +120,17 @@
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" } ],
-<s:iterator value="ListaAudienicasDia" id="ListaAudienicasDia" begin="0" end="29" status="stat">
-            ["<s:property value="FECHA_AUDI"/>", <s:property value="AUDIENCIAS_DIA"/>, "purple"],
-</s:iterator>
+<s:if test="ListaAudienicasDia.size() < 30" >
+            <s:iterator value="ListaAudienicasDia" id="ListaAudienicasDia" begin="0" end="ListaAudienicasDia.size()-1" status="stat">
+                        ["<s:property value="FECHA_AUDI"/>", <s:property value="AUDIENCIAS_DIA"/>, "purple"],
+            </s:iterator>
+</s:if>
+    <s:else>
+        <s:iterator value="ListaAudienicasDia" id="ListaAudienicasDia" begin="0" end="29" status="stat">
+                        ["<s:property value="FECHA_AUDI"/>", <s:property value="AUDIENCIAS_DIA"/>, "purple"],
+            </s:iterator>
         
-        
+    </s:else>       
         
       ]);
 
