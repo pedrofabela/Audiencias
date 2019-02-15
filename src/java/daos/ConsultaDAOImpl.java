@@ -72,7 +72,7 @@ public class ConsultaDAOImpl extends OracleDAOFactory implements ConsultaDAO {
     
     
      public List audienciasDia(DatosBean datos) throws Exception {
-        String query = "SELECT DISTINCT(TO_CHAR(FECHA_AUDI,'dd/mm/yy')) AS FECHA_AUDI,  COUNT(FOLIO) AS AUDIENCIAS_DIA FROM AUDIENCIAS WHERE TO_DATE(FECHA_AUDI) <='"+datos.getFECHA_TERMINO()+"' AND TO_DATE(FECHA_AUDI)>='"+datos.getFECHA_INICIO()+"' GROUP BY FECHA_AUDI ORDER BY TO_DATE(FECHA_AUDI) ASC";
+        String query = "SELECT DISTINCT(TO_CHAR(FECHA_AUDI,'dd/mm/yy')) AS FECHA_AUDI,  COUNT(FOLIO) AS AUDIENCIAS_DIA FROM AUDIENCIAS WHERE TO_DATE(FECHA_AUDI) <='"+datos.getFECHA_TERMINO()+"' AND TO_DATE(FECHA_AUDI)>='"+datos.getFECHA_INICIO()+"'  GROUP BY FECHA_AUDI ORDER BY TO_DATE(FECHA_AUDI) DESC";
         Constantes.enviaMensajeConsola("Consulta cct----->"+query);
         List list = null;
         list = queryForList(query, new audienciasDiaMapper());

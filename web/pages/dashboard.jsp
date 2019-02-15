@@ -31,41 +31,84 @@
           
         ]);
 
-        var options = {
-          
-          backgroundColor: '#edecec',
-          tooltip: {textStyle: {fontName: 'TimesNewRoman',fontSize: 14,bold: false}},
-           hAxis: {
-      maxTextLines: 8,
-      textStyle: {
-        fontSize: 8,
-      }
-    },
-    
-      animation: {
-                duration: 2500,
-                startup: true //This is the new option
-            },
+       var options = {
+                                title: 'Número de Escuelas del Municipio: Toluca',
+                                backgroundColor: '#e7e6e6',
+                                chartArea: {left: 20, top: 0, width: '85%', height: '100%'},
+                                legend: {position: 'left', top: 20, width: '45%', textStyle: {fontSize: 13, color: 'black', fontName: 'Didactic'}},
 
-            annotations: {
-                textStyle: {
+                                colors: ['#eb5b74', '#25a1db', '#9dc325', '#fcce00', '#a29f9d', '#e1173e'],
 
-                    fontSize: 18,
+                                textStyle: {
 
-                }
-            },
-            
-            
-    
-    
-    
-        };
+                                    fontSize: 16,
+
+                                    // The color of the text.
+                                    color: '#848484'
+                                            // The color of the text outline.
+
+                                            // The transparency of the text.
+
+                                },
+                                
+                            
+
+
+
+
+
+
+                            };
         
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         
 
         chart.draw(data, options);
+        
+        
+         var counter = 0;
+
+    var handler = setInterval(function(){ 
+        counter = counter + 0.01
+        options = {
+                    
+          slices: {                        
+                    3: {offset: counter},
+                    4: {offset: counter},                       
+                    5: {offset: counter},                       
+                    
+          },
+          
+          
+                                backgroundColor: '#e7e6e6',
+                                            chartArea: {left: 20, top: 25, width: '85%', height: '80%'},
+                                            legend: {position: 'left', top: 20, width: '45%', textStyle: {fontSize: 13, color: 'black', fontName: 'Didactic'}},
+
+                                            colors: ['#eb5b74', '#25a1db', '#9dc325', '#fcce00', '#a29f9d', '#e1173e'],
+
+                                            textStyle: {
+
+                                                fontSize: 16,
+
+                                                // The color of the text.
+                                                color: '#848484'
+                                                        // The color of the text outline.
+
+                                                        // The transparency of the text.
+
+                                            },
+
+                                        };
+                                        chart.draw(data, options);
+
+                                        if (counter > 0.20)
+                                            clearInterval(handler);
+                                    }, 200);
+        
+        
+        
+        
       }
     </script>
 
@@ -77,7 +120,7 @@
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" } ],
-<s:iterator value="ListaAudienicasDia" id="ListaAudienicasDia" status="stat">
+<s:iterator value="ListaAudienicasDia" id="ListaAudienicasDia" begin="0" end="29" status="stat">
             ["<s:property value="FECHA_AUDI"/>", <s:property value="AUDIENCIAS_DIA"/>, "purple"],
 </s:iterator>
         

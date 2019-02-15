@@ -1714,7 +1714,7 @@ public class PrincipalAction extends ActionSupport implements SessionAware {
              banderafechas=true;
             
              
-             datos.setFECHA_INICIO("01/"+fecha);
+             datos.setFECHA_INICIO("01/12/18");
              datos.setFECHA_TERMINO(fecha());
             
              
