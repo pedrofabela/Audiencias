@@ -233,7 +233,125 @@ public class Acceso_Action extends ActionSupport implements SessionAware{
 
     
    
+     public String MuestraMenuPrincipalUsuario2() {
+         
+         cveusuario="NAHIMA";
+         pasusuario="NAAD2456";
+
+        if(cveusuario!=null){
+            session.put("cveUsuario", cveusuario);
+            session.put("psw", pasusuario);
+        }else if(session.get("cveUsuario")!=null){
+            cveusuario = (String) session.get("cveUsuario");
+            pasusuario = (String) session.get("psw");
+        }
+
+        try {
+
+            //Se crea un nuevo objeto de acceco a Business
+            AccesoBusiness acceso = new AccesoBusiness();
+            usuariocons = acceso.consultaUsuario(cveusuario, pasusuario);
+            
+           
+            
+            
+            
+            System.out.println("esto llega de usuario: "+usuariocons);
+
+            if(usuariocons!=null){
+                
+                session.put("usuario",usuariocons);
+
+                //obteniendo el nombre del usuario
+                nombreUsuario=  usuariocons.getNAMEUSUARIO();
+                String Filtro=usuariocons.getFILTRO();
+                PrincipalAction objeto =new PrincipalAction();
+                ConsultasBusiness con= new ConsultasBusiness();
+                
+              
+                
+                
+
+                modulosAUX = (ArrayList<moduloBean>) acceso.consultaModulosPerfilMenu(usuariocons.getPERFIL(), modulo);
+                modulosAUXP = (ArrayList<moduloAuxBean>) acceso.consultaModulosHijosPerfilMenu(usuariocons.getPERFIL(), modulo);
+
+
+                Constantes.enviaMensajeConsola("REGRESE-----------------------");
+                Iterator iterG = modulosAUX.iterator();
+                while(iterG.hasNext()){
+                	moduloBean Concep = (moduloBean) iterG.next();
+                	System.out.println("VALOR -->" + Concep.getCVE_MODPADRE());
+                    System.out.println("VALOR -->" + Concep.getDESC_MOD());
+                    System.out.println("VALOR -->" + Concep.getIMAGEN());
+                    
+
+                }
+
+                if(modulosAUX == null){
+                    addActionError("***** Ud. no tiene acceso a este modulo, favor de contacar al administrador del sistema ***** ");
+                    return "ERROR";
+                }
+                Constantes.enviaMensajeConsola("voy a successs-----------------------");
+                  System.out.println("PERFIL +++++++++++++++++++"+usuariocons.getPERFIL());
+                  
+                  if(usuariocons.getPERFIL()==2 || usuariocons.getPERFIL()== 3 ){
+                       System.out.println("entre a return");
+                       
+                     datos.setFILTRO(usuariocons.getFILTRO());
+                      
+                      ListaAudienciasAsignadas =  objeto.inicioAsesor(Filtro);
+                      ListaTextos=con.listaTextos();
+                      ListaMunicipios=con.listaMunicipios();
+                      
+                      
+                      
+                       return "SUCCESS2";
+                      
+                  }
+                  
+                  if(usuariocons.getPERFIL()==5  ){
+                       System.out.println("entre a return");
+                       
+                     datos.setFILTRO(usuariocons.getFILTRO());
+                      
+                      ListaAudienciasAsignadas =  objeto.inicioAsesor(Filtro);
+                      ListaTextos=con.listaTextos();
+                      ListaMunicipios=con.listaMunicipios();
+                      
+                      
+                      
+                       return "SUCCESS3";
+                      
+                  }
+                  
+                  
+                 
+                  
+                  
+                  
+                  
+                  else{
+                return "SUCCESS";
+                  }
+            }
+            
+            
+            
+            else{
+                addFieldError("NO", "Usuario y/o contraseña no validos");
+                return "ERROR";
+            }
+         
+
+        } catch (Exception e) {
+            TipoError="SESSION";
+            TipoException=e.getMessage();
+            return "ERROR";
+        }
+    }
+
     
+   
     
     
 	public String verMevu(){
